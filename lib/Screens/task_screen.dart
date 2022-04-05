@@ -1,15 +1,10 @@
 //ignore_for_file: prefer_const_constructors
 import 'package:flutter/material.dart';
 import 'package:my_todo_app/widgets/tasks_list.dart';
+import 'package:my_todo_app/Screens/add_task_screen.dart';
 
 class TasksScreen extends StatelessWidget {
   const TasksScreen({Key? key}) : super(key: key);
-
-  Widget buildButtomSheet(BuildContext context) {
-    return Container(
-      color: Colors.blueGrey,
-    );
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +13,8 @@ class TasksScreen extends StatelessWidget {
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           //ADD TASK POP UP
-          showModalBottomSheet(context: context, builder: buildButtomSheet);
+          showModalBottomSheet(
+              context: context, builder: (context) => AddTaskScreen());
         },
         backgroundColor: Colors.lightBlueAccent,
         child: Icon(Icons.add),
@@ -30,7 +26,7 @@ class TasksScreen extends StatelessWidget {
             padding: EdgeInsets.only(top: 60, left: 30, right: 30, bottom: 30),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
+              children: const <Widget>[
                 CircleAvatar(
                   child: Icon(
                     Icons.list,
